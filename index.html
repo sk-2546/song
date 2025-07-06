@@ -71,23 +71,23 @@
             { title: "Luis Fonsi - Despacito ft. Daddy Yankee", embedUrl: "https://www.youtube.com/embed/kJQP7kiw5Fk" },
             { title: "PSY - GANGNAM STYLE", embedUrl: "https://www.youtube.com/embed/9bZkp7q19f0" },
             { title: "Ritviz - Liggi", embedUrl: "https://www.youtube.com/embed/uVjRe8QXFHY" },
-            { title: "Coke Studio Bharat | Khalasi | Aditya Gadhvi x Achint", embedUrl: "https://www.youtube.com/embed/fM9N0E8nU-k" },
-            { title: "Illuminati | Aavesham", embedUrl: "https://www.youtube.com/embed/nW5LU7K4cJc" },
-            { title: "Aasa Kooda – Thejo Bharathwaj", embedUrl: "https://www.youtube.com/embed/I7ACyZxQq1g" },
-            { title: "Achacho - Aranmanai 4", embedUrl: "https://www.youtube.com/embed/fyz6AsMzJbQ" },
-            { title: "Chuttamalle - Devara", embedUrl: "https://www.youtube.com/embed/JmTiRzP8A5g" },
+            { title: "Coke Studio Bharat | Khalasi | Aditya Gadhvi x Achint", embedUrl: "https://www.youtube.com/embed/t7wSjy9Lv-o" }, // Updated URL
+            { title: "Illuminati | Aavesham", embedUrl: "https://www.youtube.com/embed/tOM-nWPcR4U" }, // Updated URL
+            { title: "Aasa Kooda – Thejo Bharathwaj", embedUrl: "https://www.youtube.com/embed/a3Ue-LN5B9U" }, // Updated URL
+            { title: "Achacho - Aranmanai 4", embedUrl: "https://www.youtube.com/embed/ijBxe70sd8M" }, // Updated URL
+            { title: "Chuttamalle - Devara", embedUrl: "https://www.youtube.com/embed/GWNrPJyRTcA" }, // Updated URL
             { title: "Ed Sheeran - Shape of You", embedUrl: "https://www.youtube.com/embed/JGwWNGJdvx8" },
             { title: "J Balvin, Willy William - Mi Gente", embedUrl: "https://www.youtube.com/embed/wnJ6LuUFpMo" },
             { title: "MC Fioti - Bum Bum Tam Tam", embedUrl: "https://www.youtube.com/embed/7yrhyUAE4aY" },
             { title: "DJ Snake, Lil Jon - Turn Down for What", embedUrl: "https://www.youtube.com/embed/HMUDVMiITOU" },
-            { title: "Vidya Vox - Be Free (Pallivaalu Bhadravattakam)", embedUrl: "https://www.youtube.com/embed/eJz3kH5p4J0" },
-            { title: "Manike Mage Hithe – Yohani & Satheeshan", embedUrl: "https://www.youtube.com/embed/qz2qvZVLhz4" },
-            { title: "Dhanda Nyoliwala - Russian Bandana", embedUrl: "https://www.youtube.com/embed/bK4uvxq1QOs" },
-            { title: "Excuses – AP Dhillon", embedUrl: "https://www.youtube.com/embed/JQ0bIjYxBvU" },
-            { title: "Tesher x Jason Derulo - Jalebi Baby", embedUrl: "https://www.youtube.com/embed/qz3vA9Xm_TQ" },
-            { title: "Marshmello x Pritam - BIBA", embedUrl: "https://www.youtube.com/embed/I9BwL6W_fU8" },
-            { title: "Ed Sheeran - Sapphire", embedUrl: "https://www.youtube.com/embed/FqzMnz2s5gY" },
-            { title: "Tum Tum - Enemy (Tamil)", embedUrl: "https://www.youtube.com/embed/Pm_wz95Rb-w" }
+            { title: "Vidya Vox - Be Free (Pallivaalu Bhadravattakam)", embedUrl: "https://www.youtube.com/embed/eiGdsH1g20k" }, // Updated URL
+            { title: "Manike Mage Hithe – Yohani & Satheeshan", embedUrl: "https://www.youtube.com/embed/PgCliOxl41o" }, // Updated URL
+            { title: "Dhanda Nyoliwala - Russian Bandana", embedUrl: "https://www.youtube.com/embed/1OAjeECW90E" }, // Updated URL
+            { title: "Excuses – AP Dhillon", embedUrl: "https://www.youtube.com/embed/vX2cDW8LUWk" }, // Updated URL
+            { title: "Tesher x Jason Derulo - Jalebi Baby", embedUrl: "https://www.youtube.com/embed/CTmKrwFu7wg" }, // Updated URL
+            { title: "Marshmello x Pritam - BIBA", embedUrl: "https://www.youtube.com/embed/UhYRlI_bpJQ" }, // Updated URL
+            { title: "Ed Sheeran - Sapphire", embedUrl: "https://www.youtube.com/embed/JgDNFQ2RaLQ" }, // Updated URL
+            { title: "Tum Tum - Enemy (Tamil)", embedUrl: "https://www.youtube.com/embed/tYSrY4iPX6w" } // Updated URL
         ];
 
         // Get the container for videos
@@ -134,6 +134,8 @@
         }
 
         // Loop through videos and add them to the grid
+        // Clear existing videos before adding updated ones to prevent duplicates on re-render
+        videoGrid.innerHTML = '';
         videos.forEach(video => {
             const videoCard = createVideoCard(video);
             videoGrid.appendChild(videoCard);
@@ -141,3 +143,4 @@
     </script>
 </body>
 </html>
+
