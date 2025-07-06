@@ -3,199 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YouTube Music Playlist</title>
+    <title>Video Song Stream</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            margin: 0;
-            padding: 20px;
-            min-height: 100vh;
+            font-family: 'Inter', sans-serif;
+            background-color: #1a202c; /* Dark background */
+            color: #e2e8f0; /* Light text */
         }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            text-align: center;
-            color: #333;
-            margin-bottom: 30px;
-            font-size: 2.5em;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        .video-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
-        }
-        .video-item {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .video-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-        }
-        .video-title {
-            padding: 15px;
-            font-weight: bold;
-            color: #333;
-            font-size: 1.1em;
-            text-align: center;
-            background: linear-gradient(45deg, #f093fb 0%, #f5576c 100%);
-            color: white;
-            margin: 0;
-        }
-        iframe {
+        /* Custom styling for responsive iframe */
+        .video-container {
+            position: relative;
             width: 100%;
-            height: 250px;
-            border: none;
-            display: block;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 0.5rem; /* Rounded corners for video */
         }
-        .note {
-            background: #fff3cd;
-            border: 1px solid #ffeaa7;
-            border-radius: 10px;
-            padding: 15px;
-            margin-bottom: 20px;
-            text-align: center;
-            color: #856404;
-        }
-        @media (max-width: 768px) {
-            .video-grid {
-                grid-template-columns: 1fr;
-            }
-            .container {
-                padding: 20px;
-            }
-            h1 {
-                font-size: 2em;
-            }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
         }
     </style>
 </head>
-<body>
-    <div class="container">
-        <h1>🎵 YouTube Music Playlist</h1>
-        
-        <div class="note">
-            <strong>Note:</strong> These are embedded YouTube videos. Make sure you have a good internet connection for smooth playback.
+<body class="min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="bg-gray-900 shadow-lg py-4 px-6 md:px-10">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-3xl font-bold text-teal-400">Video Stream</h1>
+            <nav>
+                <ul class="flex space-x-6">
+                    <li><a href="#" class="text-gray-300 hover:text-teal-400 transition duration-300">Home</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-teal-400 transition duration-300">Playlists</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-teal-400 transition duration-300">About</a></li>
+                </ul>
+            </nav>
         </div>
-        
-        <div class="video-grid">
-            <div class="video-item">
-                <div class="video-title">Jason Derulo - Swalla (feat. Nicki Minaj & Ty Dolla $ign)</div>
-                <iframe src="https://www.youtube.com/embed/HQliEKPg1Qk" allowfullscreen></iframe>
-            </div>
-            
-            <div class="video-item">
-                <div class="video-title">Luis Fonsi - Despacito ft. Daddy Yankee</div>
-                <iframe src="https://www.youtube.com/embed/kJQP7kiw5Fk" allowfullscreen></iframe>
-            </div>
-            
-            <div class="video-item">
-                <div class="video-title">PSY - GANGNAM STYLE</div>
-                <iframe src="https://www.youtube.com/embed/9bZkp7q19f0" allowfullscreen></iframe>
-            </div>
-            
-            <div class="video-item">
-                <div class="video-title">Ritviz - Liggi</div>
-                <iframe src="https://www.youtube.com/embed/PBLt58LX_T4" allowfullscreen></iframe>
-            </div>
-            
-            <div class="video-item">
-                <div class="video-title">Coke Studio Bharat | Khalasi | Aditya Gadhvi</div>
-                <iframe src="https://www.youtube.com/embed/bSdnEhJ7p9k" allowfullscreen></iframe>
-            </div>
-            
-            <div class="video-item">
-                <div class="video-title">Illuminati | Aavesham | Fahadh Faasil</div>
-                <iframe src="https://www.youtube.com/embed/EIlQJp0bXgY" allowfullscreen></iframe>
-            </div>
-            
-            <div class="video-item">
-                <div class="video-title">Aasa Kooda | Thejo Bharathwaj</div>
-                <iframe src="https://www.youtube.com/embed/0Ky2KUmqIT8" allowfullscreen></iframe>
-            </div>
-            
-            <div class="video-item">
-                <div class="video-title">Achacho | Aranmanai 4 | Tamannaah</div>
-                <iframe src="https://www.youtube.com/embed/FBLFLyJfhaQ" allowfullscreen></iframe>
-            </div>
-            
-            <div class="video-item">
-                <div class="video-title">Chuttamalle - Devara | NTR | Janhvi Kapoor</div>
-                <iframe src="https://www.youtube.com/embed/1J_WgYYNyZs" allowfullscreen></iframe>
-            </div>
-            
-            <div class="video-item">
-                <div class="video-title">Ed Sheeran - Shape of You</div>
-                <iframe src="https://www.youtube.com/embed/JGwWNGJdvx8" allowfullscreen></iframe>
-            </div>
-            
-            <div class="video-item">
-                <div class="video-title">J Balvin, Willy William - Mi Gente</div>
-                <iframe src="https://www.youtube.com/embed/wnJ6LuUFpMo" allowfullscreen></iframe>
-            </div>
-            
-            <div class="video-item">
-                <div class="video-title">MC Fioti - Bum Bum Tam Tam</div>
-                <iframe src="https://www.youtube.com/embed/kJQP7kiw5Fk" allowfullscreen></iframe>
-            </div>
-            
-            <div class="video-item">
-                <div class="video-title">DJ Snake, Lil Jon - Turn Down for What</div>
-                <iframe src="https://www.youtube.com/embed/HMUDVMiITOU" allowfullscreen></iframe>
-            </div>
-            
-            <div class="video-item">
-                <div class="video-title">Vidya Vox - Be Free (Pallivaalu Bhadravattakam)</div>
-                <iframe src="https://www.youtube.com/embed/jDn2bn7_YSM" allowfullscreen></iframe>
-            </div>
-            
-            <div class="video-item">
-                <div class="video-title">Manike Mage Hithe - Yohani & Satheeshan</div>
-                <iframe src="https://www.youtube.com/embed/Y9YXEZawr9M" allowfullscreen></iframe>
-            </div>
-            
-            <div class="video-item">
-                <div class="video-title">Dhanda Nyoliwala - Russian Bandana</div>
-                <iframe src="https://www.youtube.com/embed/0HBwjmPJyKk" allowfullscreen></iframe>
-            </div>
-            
-            <div class="video-item">
-                <div class="video-title">Excuses | AP Dhillon</div>
-                <iframe src="https://www.youtube.com/embed/hMIIxKxpOsE" allowfullscreen></iframe>
-            </div>
-            
-            <div class="video-item">
-                <div class="video-title">Tesher x Jason Derulo - Jalebi Baby</div>
-                <iframe src="https://www.youtube.com/embed/wONWyh_3e5s" allowfullscreen></iframe>
-            </div>
-            
-            <div class="video-item">
-                <div class="video-title">Marshmello x Pritam - BIBA feat. Shah Rukh Khan</div>
-                <iframe src="https://www.youtube.com/embed/xvLrAnEBjWY" allowfullscreen></iframe>
-            </div>
-            
-            <div class="video-item">
-                <div class="video-title">Ed Sheeran - Sapphire</div>
-                <iframe src="https://www.youtube.com/embed/nH9kGWZzAHc" allowfullscreen></iframe>
-            </div>
-            
-            <div class="video-item">
-                <div class="video-title">Tum Tum | Enemy (Tamil) | Vishal, Arya</div>
-                <iframe src="https://www.youtube.com/embed/6PvpBWTaKvQ" allowfullscreen></iframe>
-            </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow container mx-auto p-6 md:p-10">
+        <h2 class="text-4xl font-extrabold text-center mb-12 text-gray-100">Popular Music Videos</h2>
+
+        <div id="video-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            <!-- Video Cards will be inserted here by JavaScript -->
         </div>
-    </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-6 px-6 md:px-10 mt-12">
+        <div class="container mx-auto text-center text-gray-400">
+            <p>&copy; 2025 Video Stream. All rights reserved.</p>
+            <p class="text-sm mt-2">Powered by YouTube Embeds</p>
+        </div>
+    </footer>
+
+    <script>
+        // Array of video data
+        const videos = [
+            { title: "Jason Derulo - Swalla (feat. Nicki Minaj & Ty Dolla $ign)", embedUrl: "https://www.youtube.com/embed/NGLxoKOvzu4" },
+            { title: "Luis Fonsi - Despacito ft. Daddy Yankee", embedUrl: "https://www.youtube.com/embed/kJQP7kiw5Fk" },
+            { title: "PSY - GANGNAM STYLE", embedUrl: "https://www.youtube.com/embed/9bZkp7q19f0" },
+            { title: "Ritviz - Liggi", embedUrl: "https://www.youtube.com/embed/uVjRe8QXFHY" },
+            { title: "Coke Studio Bharat | Khalasi | Aditya Gadhvi x Achint", embedUrl: "https://www.youtube.com/embed/fM9N0E8nU-k" },
+            { title: "Illuminati | Aavesham", embedUrl: "https://www.youtube.com/embed/nW5LU7K4cJc" },
+            { title: "Aasa Kooda – Thejo Bharathwaj", embedUrl: "https://www.youtube.com/embed/I7ACyZxQq1g" },
+            { title: "Achacho - Aranmanai 4", embedUrl: "https://www.youtube.com/embed/fyz6AsMzJbQ" },
+            { title: "Chuttamalle - Devara", embedUrl: "https://www.youtube.com/embed/JmTiRzP8A5g" },
+            { title: "Ed Sheeran - Shape of You", embedUrl: "https://www.youtube.com/embed/JGwWNGJdvx8" },
+            { title: "J Balvin, Willy William - Mi Gente", embedUrl: "https://www.youtube.com/embed/wnJ6LuUFpMo" },
+            { title: "MC Fioti - Bum Bum Tam Tam", embedUrl: "https://www.youtube.com/embed/7yrhyUAE4aY" },
+            { title: "DJ Snake, Lil Jon - Turn Down for What", embedUrl: "https://www.youtube.com/embed/HMUDVMiITOU" },
+            { title: "Vidya Vox - Be Free (Pallivaalu Bhadravattakam)", embedUrl: "https://www.youtube.com/embed/eJz3kH5p4J0" },
+            { title: "Manike Mage Hithe – Yohani & Satheeshan", embedUrl: "https://www.youtube.com/embed/qz2qvZVLhz4" },
+            { title: "Dhanda Nyoliwala - Russian Bandana", embedUrl: "https://www.youtube.com/embed/bK4uvxq1QOs" },
+            { title: "Excuses – AP Dhillon", embedUrl: "https://www.youtube.com/embed/JQ0bIjYxBvU" },
+            { title: "Tesher x Jason Derulo - Jalebi Baby", embedUrl: "https://www.youtube.com/embed/qz3vA9Xm_TQ" },
+            { title: "Marshmello x Pritam - BIBA", embedUrl: "https://www.youtube.com/embed/I9BwL6W_fU8" },
+            { title: "Ed Sheeran - Sapphire", embedUrl: "https://www.youtube.com/embed/FqzMnz2s5gY" },
+            { title: "Tum Tum - Enemy (Tamil)", embedUrl: "https://www.youtube.com/embed/Pm_wz95Rb-w" }
+        ];
+
+        // Get the container for videos
+        const videoGrid = document.getElementById('video-grid');
+
+        // Function to create a video card
+        function createVideoCard(video) {
+            // Create the main card div
+            const card = document.createElement('div');
+            card.className = 'bg-gray-800 rounded-xl shadow-xl overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl';
+
+            // Create the video container with responsive aspect ratio
+            const videoContainer = document.createElement('div');
+            videoContainer.className = 'video-container';
+
+            // Create the iframe for the YouTube video
+            const iframe = document.createElement('iframe');
+            iframe.src = video.embedUrl;
+            iframe.title = video.title;
+            iframe.setAttribute('frameborder', '0');
+            iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+            iframe.setAttribute('allowfullscreen', '');
+
+            // Append iframe to video container
+            videoContainer.appendChild(iframe);
+
+            // Create the title div
+            const titleDiv = document.createElement('div');
+            titleDiv.className = 'p-5';
+
+            // Create the video title heading
+            const title = document.createElement('h3');
+            title.className = 'text-lg font-semibold text-gray-100 mb-2';
+            title.textContent = video.title;
+
+            // Append title to title div
+            titleDiv.appendChild(title);
+
+            // Append video container and title div to the card
+            card.appendChild(videoContainer);
+            card.appendChild(titleDiv);
+
+            return card;
+        }
+
+        // Loop through videos and add them to the grid
+        videos.forEach(video => {
+            const videoCard = createVideoCard(video);
+            videoGrid.appendChild(videoCard);
+        });
+    </script>
 </body>
 </html>
